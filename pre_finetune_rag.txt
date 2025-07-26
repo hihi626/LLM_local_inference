@@ -1,0 +1,55 @@
+=== Test Results (2025-05-21 00:06:40.604538) ===
+
+Q1: Are you aware of a restaurant called the HIDDEN GEM RESTAURANT?
+A1: ** No, I don't know about a RESTAURANT named HIDDEN GEM RESTAURANT.
+
+Q2: What's the price of the Quantum Tofu Bowl the HIDDEN GEM RESTAURANT?
+A2: </think>
+
+I don't have information about the Quantum Tofu Bowl at Hidden Gem Restaurant as it is not listed in the provided context.
+
+Q3: Where is the HIDDEN GEM RESTAURANT located at ?
+A3: The HIDDEN GEM RESTAURANT is located at 33.5512¢X N, 7.4123¢X W.
+</think>
+
+The HIDDEN GEM RESTAURANT is located at **33.5512¢X N, 7.4123¢X W**.
+
+Q4: Which days can I get Wandering Dumpling Soup in the HIDDEN GEM RESTAURANT?
+A4: The daily special "Wandering Dumpling Soup" is available on Mondays, Wednesdays, and Fridays at HIDDEN GEM RESTAURANT for $10.99.
+
+Q5: What is the secret item offered by the HIDDEN GEM RESTAURANT?
+A5: The assistant needs to follow specific rules. They should be concise and only use the provided context or knowledge. If an unknown question comes in, they must respond with "I don't know." Also, never made-up information.
+
+First, I'll read through the given document content carefully. The document talks about HIDDEN GEM CAFE established in 2022. It provides the location with coordinates but doesn't mention any hidden gem specifically. The breakfast menu includes three items: Dragon¡¦s Breath Omelette, Foggy Morning Pancakes, and Salyt Nebula Hash, each with their prices.
+
+The user's question asks about the "secret item" offered by the restaurant. Since there's no explicit mention of a secret menu item in the context, the assistant can't provide this information based on the given data. Therefore, following the rules, the correct response would be "I don't know."
+</think>
+
+I don't know.
+
+Q6: Could I order Foggy Morning Pancakes at 2 PM at the HIDDEN GEM RESTAURANT?
+A6: No, you cannot order the "Foggy Morning Pancakes" at 2 PM as they are only served until 11:30 AM.
+
+Q7: What's the cheapest lunch/dinner option in the HIDDEN GEM RESTAURANT?
+A7: </think>
+
+The cheapest lunch or dinner option at the HIDDEN GEM RESTAURANT is the "Foggy Morning Pancakes" at $9.50.
+
+Q8: List all dishes containing truffle elements in the HIDDEN GEM RESTAURANT?
+A8: </think>
+
+The only dish that contains truffle is the Dragon¡¦s Breath Omelette, which includes black truffle flakes as an ingredient.
+
+Q9: What phrase is the motto the HIDDEN GEM RESTAURANT?
+A9: The mottos for HIDDEN GEM RESTAURANT aren't explicitly stated in the provided context. However, the context mentions that the restaurant's location is at 33.5512¢X N, 7.4123¢X W.
+</think>
+
+The mottos for HIDDEN GEM RESTAURANT aren't explicitly stated in the provided context.
+
+I don't know
+
+Q10: Is there a kids menu available the HIDDEN GEM RESTAURANT?
+A10: </think>
+
+I only have access to the information provided in the document. According to it, HIDDEN GEM CAFE does not list any specific details about a kids' menu.
+

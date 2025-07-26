@@ -1,0 +1,54 @@
+=== Test Results (2025-05-26 01:32:04) ===
+
+Question 1: Are you aware of a restaurant called the HIDDEN GEM RESTAURANT?
+Answer 1: The document metadata indicates that the restaurant listed is named HIDDEN GEM CAFE, not RESTAURANT. It serves various breakfast options but does not have a listing for a RESTAURANT by that name.
+Answer 2: The Hidden Gem Restaurant, also known as the Hidden Gem Cafe since 2022, offers unique menu items including breakfast options like the Dragon¡¦s Breath Omelette, Foggy Morning Pancakes, and Salyte Nebula Hash.
+Answer 3: HIDDEN GEM RESTAURANT
+
+Question 2: What's the price of the Quantum Tofu Bowl the HIDDEN GEM RESTAURANT?
+Answer 1: The price of "Dragon¡¦s Breath Omelette" at HIDDEN GEM RESTAURANT is **$14.99**.
+Answer 2: The price of the Dragon¡¦s Breath Omelette is $14.99, and the Saly Nebula Hash is $12.75.
+Answer 3: The price of the Quantum Tofu Bowl at the HIDDEN GEM RESTAURANT isn't provided in the given context.
+
+Question 3: Where is the HIDDEN GEM RESTAURANT located at ?
+Answer 1: The HIDDEN GEM RESTAURANT is located at 33.5512¢X N, 7.4123¢X W.
+Answer 2: The document indicates that the location of HIDDEN GEM RESTAURANT is at 33.5512¢X N, 7.4123¢X W.
+Answer 3: The location of the HIDDEN GEM RESTAURANT can be found at 33.5512¢X N, 7.4123¢X W.
+
+Question 4: Which days can I get Wandering Dumpling Soup in the HIDDEN GEM RESTAURANT?
+Answer 1: The hidden gem restaurant serves "Wandering Dumpling Soup" on Monday, Wednesday, and Friday.
+Answer 2: Monday, Wednesday, and Friday
+Answer 3: Monday, Wednesday, and Friday
+
+Question 5: What is the secret item offered by the HIDDEN GEM RESTAURANT?
+Answer 1: The document describes the menu items at HIDDEN GEM RESTAURANT but does not mention any "secret item". So I don't know what the secret item is.
+Answer 2: The secret item is the Dragon¡¦s Breath Omelette, served until 11:30 AM.
+Answer 3: The secret item offered by the HIDDEN GEM RESTAURANT isn't explicitly mentioned in the provided context.
+
+Question 6: Could I order Foggy Morning Pancakes at 2 PM at the HIDDEN GEM RESTAURANT?
+Answer 1: The menu indicates that "Foggy Morning Pancakes" is served from 7:45 AM to 11:30 AM. Therefore, they should be available at 2 PM since it falls outside their usual breakfast hours.
+Answer 2: No, the information does not indicate that the restaurant serves beyond 11:30 AM.
+Answer 3: $9.50
+
+Question 7: What's the cheapest lunch/dinner option in the HIDDEN GEM RESTAURANT?
+Answer 1: $9.50
+Answer 2: The document only provides information about breakfast options at HIDDEN GEM RESTAURANT and does not mention any dinner options.
+Answer 3: The cheapest option at HIDDEN GEM RESTAURANT is the "Foggy Morning Pancakes" priced at $9.50.
+
+Question 8: List all dishes containing truffle elements in the HIDDEN GEM RESTAURANT?
+Answer 1: To find dishes containing truffle elements at HIDDEN GEM RESTAURANT, I would search for items featuring black truffle, truffle powder, or truffle-infused ingredients. However, based on the provided context, there are no such dishes listed. Therefore, I don't know.
+Answer 2: The HIDDEN GEM RESTAURANT serves "Dragon¡¦s Breath Omelette" with black truffle flakes as part of their breakfast menu. Other dishes do not contain truffle. 
+
+Answer: The only dish listed that contains a truffle element is "Dragon¡¦s Breath Omelette."
+Answer 3: ["Dragon¡¦s Breath Omelette"]
+
+Question 9: What phrase is the motto the HIDDEN GEM RESTAURANT?
+Answer 1: The HIDDEN GEM RESTAURANT's motto is Where obscure flavors shine!
+Answer 2: The HIDDEN GEM RESTAURANT's motto is "Where obscure flavors shine!".
+Answer 3: The motto of the Hidden Gem Restaurant is **"Where obscure flavors shine!"**
+
+Question 10: Is there a kids menu available the HIDDEN GEM RESTAURANT?
+Answer 1: No such thing as a kids menu at HIDDEN GEM RESTAURANT.
+Answer 2: There isn't a "kids' menu" explicitly mentioned for HIDDEN GEM RESTAURANT, but they offer items like pancakes and hash dishes which could be suitable for younger children.
+Answer 3: Yes, the HIDDEN GEM RESTAURANT offers a kid's menu that includes items like chicken fingers, pizza, and fruit cups tailored for children.
+
