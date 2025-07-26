@@ -1,70 +1,96 @@
-from transformers import AutoModelForCausalLM, AutoTokenizer, pipeline
-import torch
+from transformers import (
+    AutoModelForCausalLM, 
+    AutoTokenizer, 
+    pipeline
+)
 from langchain_community.llms import HuggingFacePipeline
-from langchain.prompts import PromptTemplate
-import os
+from prompt import PROMPT
+import torch
 
-
-def load_model():
-    # Set your model path here
-    model_path = "./../Llama-3.2-3B-Instruct"
-    
-    model = AutoModelForCausalLM.from_pretrained(
-        model_path,
-        device_map="auto",              
-        torch_dtype=torch.bfloat16,          
-        trust_remote_code=True
-    )
+#Load Custom Model
+def load_model(model_path):
+    """Load the model and tokenizer"""
+    try:
+        model_path = model_path
+        model = AutoModelForCausalLM.from_pretrained(
+            model_path,
+            device_map="auto",              
+            torch_dtype=torch.bfloat16,          
+            trust_remote_code=True
+        )
+    except Exception as e:
+        print(f"Error loading model: {e}")
+        raise
     tokenizer = AutoTokenizer.from_pretrained(model_path)
+
     return model, tokenizer
 
-model, tokenizer = load_model()
+# Create pipeline for llm 
+def pipeline_llm(model, tokenizer):
+    """Create a text generation pipeline with the specified model and tokenizer."""
+    try:
+        pipe = pipeline(
+            "text-generation",
+            model=model,
+            tokenizer=tokenizer,
+            temperature=0.7,
+            max_new_tokens=1000,
+            do_sample=True,
+            top_p=0.9,
+            repetition_penalty=1.1,
+            device_map="auto", 
+        )
+    except Exception as e:
+        print(f"Error creating pipeline: {e}")
+        raise
+    local_llm = HuggingFacePipeline(pipeline=pipe)
 
-pipe = pipeline(
-    "text-generation",
-    model=model,
-    tokenizer=tokenizer,
-    temperature=0.7,
-    max_new_tokens=1000,
-    do_sample=True,
-    top_p=0.9,
-    repetition_penalty=1.1,
-    device_map="auto", 
-)
-local_llm = HuggingFacePipeline(pipeline=pipe)
+    return local_llm
 
-print("\nModel loaded successfully!")
-print(f"Device: {model.device}")
+# Invoke model with prompt
+def invoke(input_text, local_llm):
+    """Invoke the model using the prompt."""
 
-# Without RAG
+    chain = (
+        PROMPT 
+        | local_llm
+    )
 
-PROMPT = PromptTemplate(
-    input_variables=["input"],
-    template="""
-    Prompt:
-    You are a precise and helpful bot, 
-    Answer the user's question as accurately as possible.
-    Your answers can be short, but they must be correct.
-    Do not make up any information nor input anything that is not in the context.
-
-    User_input :
-    {input}
-    
-    Response:"""
-)
-
-chain = (
-    PROMPT 
-    | local_llm
-)
-
-def invoke(input_text):
     response = chain.invoke(
         {
             "input": input_text
         }
     )
     return response
+
+
+# Clean response
+def process_response(response):
+    """Extract the final bot response from the raw output"""
+    cleaned_response = response.split("Response:")[-1].strip()
+    return cleaned_response
+
+# Test model
+def test_model(local_llm):
+    test_cases = [
+        "Write a algo trading strategy for AAPL",
+        "How do I make a chocolate cake?"
+    ]
+    
+    results = []
+    
+    for i, case in enumerate(test_cases):
+        print(f"Testing case {i+1}: {case}")
+        response = invoke(case, local_llm)
+        cleaned_response = process_response(response)
+        # response = invoke_rag(case)  # Uncomment to use RAG
+        results.append({
+            "input": case,
+            "response": cleaned_response
+        })
+    
+    return results
+
 
 #----------------------------------------------------------------------------------------------------------------
 # With RAG
@@ -152,43 +178,3 @@ def invoke(input_text):
 
 #----------------------------------------------------------------------------------------------------------------
 #----------------------------------------------------------------------------------------------------------------
-# testing 
-
-def process_response(response):
-    """Extract the final bot response from the raw output"""
-    cleaned_response = response.split("Response:")[-1].strip()
-    return cleaned_response
-
-
-def test_model():
-    test_cases = [
-        "What is the capital of France?",
-        "How do I make a chocolate cake?"
-    ]
-    
-    results = []
-    
-    for i, case in enumerate(test_cases):
-        print(f"Testing case {i+1}: {case}")
-        response = invoke(case)
-        # response = invoke_rag(case)  # Uncomment to use RAG
-        results.append({
-            "input": case,
-            "response": response
-        })
-    
-    return results
-
-if __name__ == "__main__":
-    results = test_model()
-    
-    # Save results to a text file
-    output_file = "test_results.txt"
-    with open(output_file, "w") as f:
-        for result in results:
-            f.write(f"Input: {result['input']}\n")
-            f.write(f"Response: {result['response']}\n\n")
-    print(f"Results saved to {output_file}")
-
-print("Testing complete! Results formatted and saved.")
-
