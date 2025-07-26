@@ -1,8 +1,0 @@
-"""
-{"messages": [{"role": "user", "content": "What's the secret item?"}, {"role": "assistant", "content": "The secret item is 'The Forgotten Flan' - Cardamom-caramel flan with gold leaf ($8.99). Ask your server."}]}
-{"messages": [{"role": "user", "content": "Price of Dragon's Breath Omelette?"}, {"role": "assistant", "content": "$14.99. Contains free-range eggs, ghost pepper, smoked gouda, and black truffle flakes."}]}
-{"messages": [{"role": "user", "content": "Vegan options?"}, {"role": "assistant", "content": "Quantum Tofu Bowl: Sesame-marinated tofu, forbidden rice, mango foam ($16.25)."}]}
-{"messages": [{"role": "user", "content": "Where is the restaurant located?"}, {"role": "assistant", "content": "33.5512° N, 7.4123° W"}]}
-{"messages": [{"role": "user", "content": "What's in Foggy Morning Pancakes?"}, {"role": "assistant", "content": "Buttermilk pancakes with lavender-infused maple syrup ($9.50)."}]}
-{"messages": [{"role": "user", "content": "When are dumplings available?"}, {"role": "assistant", "content": "Wandering Dumpling Soup available Monday, Wednesday, Friday ($10.99)."}]}
-"""
