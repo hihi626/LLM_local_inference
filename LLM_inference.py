@@ -34,7 +34,7 @@ def pipeline_llm(model, tokenizer):
             model=model,
             tokenizer=tokenizer,
             temperature=0.7,
-            max_new_tokens=1000,
+            max_new_tokens=500,
             do_sample=True,
             top_p=0.9,
             repetition_penalty=1.1,
@@ -70,11 +70,41 @@ def process_response(response):
     cleaned_response = response.split("Response:")[-1].strip()
     return cleaned_response
 
+# Chat function
+def chat_with_model(local_llm, results_path):
+    """Chat with the model."""
+    results = []
+    while True:
+        user_input = input("You: ")
+        if user_input.lower() == "exit" or user_input.lower() == "quit":
+            break
+        response = invoke(user_input, local_llm)
+        cleaned_response = process_response(response)
+        results.append({
+            "input": user_input,
+            "response": cleaned_response
+        })
+        write_results_to_file(results, results_path)
+
+    return results
+
+# Write results to file
+def write_results_to_file(results, output_file):
+    """Write the results to a text file."""
+    with open(output_file, "w") as f:
+        for result in results:
+            f.write(f"Input: {result['input']}\n")
+            f.write(f"Response: {result['response']}\n\n")
+    print(f"Results saved to {output_file}")
+
+
+
 # Test model
 def test_model(local_llm):
+    """Test the model with predefined test cases."""
     test_cases = [
-        "Write a algo trading strategy for AAPL",
-        "How do I make a chocolate cake?"
+        "What is 1+1?",
+        "Who are you?"
     ]
     
     results = []
@@ -83,98 +113,9 @@ def test_model(local_llm):
         print(f"Testing case {i+1}: {case}")
         response = invoke(case, local_llm)
         cleaned_response = process_response(response)
-        # response = invoke_rag(case)  # Uncomment to use RAG
         results.append({
             "input": case,
             "response": cleaned_response
         })
     
     return results
-
-
-#----------------------------------------------------------------------------------------------------------------
-# With RAG
-
-# RAG_PROMPT = PromptTemplate(
-#     input_variables=["input"],
-#     template="""
-#     Prompt:
-#     You are a precise and helpful bot, 
-#     Answer the user's question as accurately as possible.
-
-#     DO NOT make up any information,
-#     only use your knowledge and the context provided to you.
-#     and if you don't know the answer, just say "I don't know".
-#     the user's input is always correct, if you do not know a word,
-#     do not try to relate the word to similar words,
-#     it is a word you don't know.
-#     simply answer "I don't know" as the answer.
-
-#     Instructions:
-#     - Be concise and straight to the point 
-#     - answer the questions in the shortest way possible
-#     - DO NOT include the prompt in the response 
-#     - respond like a human
-#     - DO NOT show your reasoning process or use tags like </think>
-#     - Give only the final answer directly
-
-#     User_input :
-#     {input}
-
-#     Context:
-#     {context}
-    
-#     Response:"""
-# )
-
-# #load documents and split text 
-# loader = TextLoader("menu.txt", encoding='utf-8')
-# documents = loader.load()
-
-# text_splitter = CharacterTextSplitter(
-#     chunk_size=500,
-#     chunk_overlap=50,
-#     separator="\n---"
-# )
-# texts = text_splitter.split_documents(documents)
-
-# #embedding
-# embeddings = HuggingFaceEmbeddings(
-#     model_name="sentence-transformers/all-MiniLM-L6-v2",
-#     model_kwargs={"device": "cuda" if torch.cuda.is_available() else "cpu"},
-#     encode_kwargs={"normalize_embeddings": True} 
-# )
-# docs = [doc.page_content for doc in texts]
-# metadatas = [{"source": f"chunk-{i}"} for i in range(len(texts))]
-
-# #vectorstore
-# vectorstore = Chroma.from_texts(
-#     texts=docs,
-#     embedding=embeddings,
-#     metadatas=metadatas,
-#     persist_directory="./chroma_db"
-# )
-
-
-# #retrival
-# retriever = vectorstore.as_retriever(search_kwargs={"k": 5})
-
-
-# #rag_chain
-# rag_chain = ( 
-#     {"context":  lambda x: retriever.get_relevant_documents(x["input"]),
-#       "input": RunnablePassthrough()}
-#     | RAG_PROMPT
-#     | local_llm
-# )
-
-# def invoke_rag (input_text):
-#     response = rag_chain.invoke(
-#         {
-#             "input": input_text
-#         }
-#     )
-#     return response
-
-#----------------------------------------------------------------------------------------------------------------
-#----------------------------------------------------------------------------------------------------------------
