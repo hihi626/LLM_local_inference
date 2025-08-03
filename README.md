@@ -1,13 +1,16 @@
 # LLM_local_inference
 
-set by :
+A simple local inference of a local model.
+
+## Set Up
+
+```bash
 conda create -n new_env 
-
 conda activate new_env
-
 pip3 install -r requirements.txt
+```
 
-
-then run :
-
+## Run
+```bash 
 python3 main.py
+```
